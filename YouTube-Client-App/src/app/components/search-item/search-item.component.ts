@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ResultItem } from 'src/app/models/result-item.model';
 
 @Component({
   selector: 'app-search-item',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchItemComponent implements OnInit {
 
+  public resultItem: ResultItem;
+
   constructor() { }
 
-  ngOnInit() {
+  public ngOnInit(): void {
   }
 
 }
