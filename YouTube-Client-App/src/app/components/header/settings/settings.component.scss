@@ -1,0 +1,24 @@
+$backgroundColor: #2F80ED;
+
+.settings-button {
+  height: 24px;
+  width: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 5px;
+  background-color: $backgroundColor;
+  box-shadow: 2px 0px 4px #2F80ED;
+  outline: none;
+
+  &:active {
+    background: darken($backgroundColor, 10%);
+    box-shadow: 2px 0px 4px #1d5194bb;
+  }
+}
+
+.setting-background {
+  height: 15px;
+  width: 15px;
+}

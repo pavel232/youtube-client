@@ -6,9 +6,10 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
 import { SearchItemComponent } from './components/search-item/search-item.component';
-import { SortingComponent } from './components/header/sorting/sorting.component';
+import { SortingComponent } from './components/sorting/sorting.component';
 import { SearchBarComponent } from './components/header/search-bar/search-bar.component';
 import { LoginComponent } from './components/header/login/login.component';
+import { SettingsComponent } from './components/header/settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { LoginComponent } from './components/header/login/login.component';
     SearchItemComponent,
     SortingComponent,
     SearchBarComponent,
-    LoginComponent
+    LoginComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
