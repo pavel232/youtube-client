@@ -1,8 +1,9 @@
 export interface ResultItem {
   title: string;
   preview: string;
-  views: number;
-  likes: number;
-  dislikes: number;
-  comments: number;
+  views: string;
+  likes: string;
+  dislikes: string;
+  comments: string;
+  uploadDate: string;
 }

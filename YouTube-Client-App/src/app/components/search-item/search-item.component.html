@@ -1,3 +1,28 @@
 <div class="item-wrapper">
+  <img class="preview" [src]="cardItem.preview" alt="Video preview">
 
+  <div class="statistics">
+    <div class="statistics__element">
+      <img [src]="iconViewed" alt="Viewed">
+    <span class="statistics__element__text">{{ cardItem.views }}</span>
+    </div>
+    <div class="statistics__element">
+      <img [src]="iconLiked" alt="Likes">
+    <span class="statistics__element__text">{{ cardItem.likes }}</span>
+    </div>
+    <div class="statistics__element">
+      <img [src]="iconDislike" alt="Dislikes">
+    <span class="statistics__element__text">{{ cardItem.dislikes }}</span>
+    </div>
+    <div class="statistics__element">
+      <img [src]="iconComments" alt="Comments">
+    <span class="statistics__element__text">{{ cardItem.comments }}</span>
+    </div>
+  </div>
+
+<p class="title">{{ cardItem.title }}</p>
+
+  <button class="more-button">more...</button>
+
+  <div class="date-status"></div>
 </div>

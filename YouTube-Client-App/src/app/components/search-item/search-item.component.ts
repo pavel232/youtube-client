@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ResultItem } from 'src/app/models/result-item.model';
 
 @Component({
@@ -8,7 +8,12 @@ import { ResultItem } from 'src/app/models/result-item.model';
 })
 export class SearchItemComponent implements OnInit {
 
-  public resultItem: ResultItem;
+  @Input() public cardItem: ResultItem;
+
+  public iconViewed: string = 'assets/viewed.svg';
+  public iconLiked: string = 'assets/liked.svg';
+  public iconDislike: string = 'assets/dislike.svg';
+  public iconComments: string = 'assets/comments.svg';
 
   constructor() { }
 

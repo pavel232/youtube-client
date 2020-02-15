@@ -1,10 +1,6 @@
 <div class="search-results-wrapper">
-  <app-search-item></app-search-item>
-  <app-search-item></app-search-item>
-  <app-search-item></app-search-item>
-  <app-search-item></app-search-item>
-  <app-search-item></app-search-item>
-  <app-search-item></app-search-item>
-  <app-search-item></app-search-item>
-  <app-search-item></app-search-item>
+  <app-search-item
+    *ngFor="let item of resultItem"
+    [cardItem]="item"
+  ></app-search-item>
 </div>

@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  public title: string = 'YouTube-Client-App';
+
+  public showSorting: boolean = false;
+
+  public onToggle(): void {
+    this.showSorting = !this.showSorting;
+  }
+
 }
