@@ -10,6 +10,8 @@ export class SearchItemComponent implements OnInit {
 
   @Input() public cardItem: ResultItem;
 
+  public color: string;
+
   public iconViewed: string = 'assets/viewed.svg';
   public iconLiked: string = 'assets/liked.svg';
   public iconDislike: string = 'assets/dislike.svg';
@@ -18,6 +20,18 @@ export class SearchItemComponent implements OnInit {
   constructor() { }
 
   public ngOnInit(): void {
-  }
+    const sevenDays = 604800000;
+    const oneMonth = 2592000000;
+    const sixMonth = 15552000000;
 
+    if (this.cardItem.uploadDate < sevenDays) {
+      this.color = 'blue';
+    } else if (this.cardItem.uploadDate > sevenDays && this.cardItem.uploadDate < oneMonth) {
+      this.color = 'green';
+    } else if (this.cardItem.uploadDate > oneMonth && this.cardItem.uploadDate < sixMonth) {
+      this.color = 'yellow';
+    } else {
+      this.color = 'red';
+    }
+  }
 }

@@ -19,6 +19,10 @@ export class SortingComponent implements OnInit {
   public ngOnInit(): void {
   }
 
+  public sortingByDate(): void {
+    this.mainService.sortByDate();
+  }
+
   public sortingByViews(): void {
     this.mainService.sortByViews();
   }

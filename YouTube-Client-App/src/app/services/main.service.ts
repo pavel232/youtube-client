@@ -12,6 +12,13 @@ export class MainService {
 
   constructor() {  }
 
+  private calculateDate (date: string): number {
+
+    const a: Date = new Date();
+    const b: Date = new Date(date);
+    return +a - +b;
+  }
+
   public getSearchItems(): ResultItem[] {
     return this.cardItemsArray;
   }
@@ -26,15 +33,20 @@ export class MainService {
         likes: element.statistics.likeCount,
         dislikes: element.statistics.dislikeCount,
         comments: element.statistics.commentCount,
-        uploadDate: element.snippet.publishedAt
+        uploadDate: this.calculateDate(element.snippet.publishedAt)
       };
       this.cardItemsArray.push(item);
     });
   }
 
+  public sortByDate(): void {
+    console.log(this.cardItemsArray);
+    this.cardItemsArray.sort((a: ResultItem, b: ResultItem) => a.uploadDate - b.uploadDate);
+  }
+
   public sortByViews(): void {
     console.log(this.cardItemsArray);
-    this.cardItemsArray.sort((a: any, b: any) => a.views - b.views);
+    this.cardItemsArray.sort((a: ResultItem, b: ResultItem) => +a.views - +b.views);
   }
 
   public sortByKeyword(word: string): void {

@@ -5,5 +5,5 @@ export interface ResultItem {
   likes: string;
   dislikes: string;
   comments: string;
-  uploadDate: string;
+  uploadDate: number;
 }
