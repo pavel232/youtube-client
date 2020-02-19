@@ -1,9 +1,6 @@
 import { Component, OnInit, Injectable } from '@angular/core';
-import { SearchResponse } from 'src/app/models/search-response.model';
-import { YouTubeResponse } from '../../response';
 import { ResultItem } from 'src/app/models/result-item.model';
-
-@Injectable({providedIn: 'root'})
+import { MainService }  from '../../services/main.service';
 
 @Component({
   selector: 'app-search-results',
@@ -11,34 +8,16 @@ import { ResultItem } from 'src/app/models/result-item.model';
   styleUrls: ['./search-results.component.scss']
 })
 
+@Injectable({providedIn: 'root'})
+
 export class SearchResultsComponent implements OnInit {
 
-  public resultItem: ResultItem[] = [];
+  public resultItem: ResultItem[];
 
-  public response: SearchResponse = YouTubeResponse;
-
-  constructor() { }
+  constructor(public mainService: MainService) {  }
 
   public ngOnInit(): void {
-    this.createCard();
-  }
-
-  public createCard(): void {
-    this.resultItem = [];
-
-    this.response.items.map((element) => {
-      const item: ResultItem = {
-        title: element.snippet.title,
-        preview: element.snippet.thumbnails.medium.url,
-        views: element.statistics.viewCount,
-        likes: element.statistics.likeCount,
-        dislikes: element.statistics.dislikeCount,
-        comments: element.statistics.commentCount,
-        uploadDate: element.snippet.publishedAt
-      };
-      this.resultItem.push(item);
-    });
-    console.log(this.resultItem);
+    this.resultItem = this.mainService.getSearchItems();
   }
 
 }

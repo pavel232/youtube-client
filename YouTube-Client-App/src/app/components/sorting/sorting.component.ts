@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Injectable } from '@angular/core';
+import { MainService } from '../../services/main.service';
 
 @Component({
   selector: 'app-sorting',
@@ -11,16 +12,18 @@ import { Injectable } from '@angular/core';
 
 export class SortingComponent implements OnInit {
 
-  // public isShow: boolean = true;
+  private searchString: string = '';
 
-  constructor() { }
+  constructor(private mainService: MainService) { }
 
   public ngOnInit(): void {
   }
 
-  // public toggleShow(): void {
-  //   this.isShow = !this.isShow;
-  //   console.log(this.isShow);
-  // }
+  public sortingByViews(): void {
+    this.mainService.sortByViews();
+  }
 
+  public sortingByWord(): void {
+    this.mainService.sortByKeyword(this.searchString);
+  }
 }

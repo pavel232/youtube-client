@@ -8,7 +8,7 @@ import { AppComponent } from 'src/app/app.component';
 })
 export class SettingsComponent implements OnInit {
 
-  public settingsBackgroundPath: string = '/assets/settings.svg';
+  public settingsIcon: string = '/assets/settings.svg';
 
   constructor(private showSorting: AppComponent) { }
 

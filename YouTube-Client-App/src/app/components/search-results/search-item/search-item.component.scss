@@ -69,6 +69,10 @@ $backgroundColor: #E5E5E5;
   line-height: 14px;
   color: #ffffff;
 
+  &:hover {
+    cursor: pointer;
+  }
+
   &:active {
     background: darken(#2F80ED, 10%);
     box-shadow: 2px 0px 4px #1d5194bb;

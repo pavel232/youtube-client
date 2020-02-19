@@ -7,10 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  public showSorting: boolean = false;
+  public isShowSorting: boolean = false;
 
   public onToggle(): void {
-    this.showSorting = !this.showSorting;
+    this.isShowSorting = !this.isShowSorting;
   }
 
 }

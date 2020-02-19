@@ -12,6 +12,10 @@ $backgroundColor: #2F80ED;
   box-shadow: 2px 0px 4px #2F80ED;
   outline: none;
 
+  &:hover {
+    cursor: pointer;
+  }
+
   &:active {
     background: darken($backgroundColor, 10%);
     box-shadow: 2px 0px 4px #1d5194bb;

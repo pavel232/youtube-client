@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SearchResultsComponent } from '../../search-results/search-results.component';
+import { MainService} from '../../../services/main.service';
 
 @Component({
   selector: 'app-search-bar',
@@ -8,13 +8,14 @@ import { SearchResultsComponent } from '../../search-results/search-results.comp
 })
 export class SearchBarComponent implements OnInit {
 
-  constructor(private createCard: SearchResultsComponent) { }
+  constructor(
+    private mainService: MainService) { }
 
   public ngOnInit(): void {
   }
 
   public onSearch(): void {
-    this.createCard.createCard();
+    this.mainService.updateSearchItems();
   }
 
 }
