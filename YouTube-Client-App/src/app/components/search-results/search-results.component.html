@@ -1,5 +1,6 @@
-<ul>
-  <li>
-    <app-search-item></app-search-item>
-  </li>
-</ul>
+<div class="search-results-wrapper">
+  <app-search-item
+    *ngFor="let item of resultItem | filterPipe:keyWord;"
+    [cardItem]="item"
+  ></app-search-item>
+</div>

@@ -1,4 +1,21 @@
-.login-container {
+$backgroundColor: #2F80ED;
+$defaultFont: 'Roboto', sans-serif;
+
+.login-wrapper {
+  height: 24px;
   position: absolute;
   right: 30px;
+  display: flex;
+  align-items: center;
+  font-family: $defaultFont;
+}
+
+.login-button {
+  height: 24px;
+  width: 24px;
+  margin: 8px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 2px 2px 4px #2f80ed40;
+  outline: none;
 }

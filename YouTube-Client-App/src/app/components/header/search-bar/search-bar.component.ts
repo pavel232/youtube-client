@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MainService} from '../../../services/main.service';
 
 @Component({
   selector: 'app-search-bar',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchBarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private mainService: MainService) { }
 
   public ngOnInit(): void {
+  }
+
+  public onSearch(): void {
+    this.mainService.updateSearchItems();
   }
 
 }
