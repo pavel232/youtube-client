@@ -10,10 +10,11 @@ export class MainService {
   public mockData: SearchResponse = YouTubeResponse;
   public cardItemsArray: ResultItem[] = [];
 
+  public filterWord: string = '';
+
   constructor() {  }
 
   private calculateDate (date: string): number {
-
     const a: Date = new Date();
     const b: Date = new Date(date);
     return +a - +b;
@@ -40,17 +41,11 @@ export class MainService {
   }
 
   public sortByDate(): void {
-    console.log(this.cardItemsArray);
     this.cardItemsArray.sort((a: ResultItem, b: ResultItem) => a.uploadDate - b.uploadDate);
   }
 
   public sortByViews(): void {
-    console.log(this.cardItemsArray);
     this.cardItemsArray.sort((a: ResultItem, b: ResultItem) => +a.views - +b.views);
-  }
-
-  public sortByKeyword(word: string): void {
-    this.cardItemsArray.filter((w: any) => w === word);
   }
 
 }

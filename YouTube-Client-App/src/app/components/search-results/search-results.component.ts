@@ -1,6 +1,7 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import { ResultItem } from 'src/app/models/result-item.model';
 import { MainService }  from '../../services/main.service';
+import { SortingComponent } from '../sorting/sorting.component';
 
 @Component({
   selector: 'app-search-results',
@@ -14,10 +15,16 @@ export class SearchResultsComponent implements OnInit {
 
   public resultItem: ResultItem[];
 
-  constructor(public mainService: MainService) {  }
+  public keyWord: string = '';
+
+  constructor(
+    public mainService: MainService,
+    public sorting: SortingComponent
+    ) {  }
 
   public ngOnInit(): void {
     this.resultItem = this.mainService.getSearchItems();
+    this.keyWord = this.mainService.filterWord;
   }
 
 }

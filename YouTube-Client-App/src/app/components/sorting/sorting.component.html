@@ -3,5 +3,9 @@
   <p class="sorting-param" (click)="sortingByDate()">date</p>
   <p class="sorting-param" (click)="sortingByViews()">count of views</p>
   <p class="sorting-description">by word or sentence</p>
-  <input class="sorting-input" type="text">
+  <input
+    class="sorting-input"
+    type="text"
+    [(ngModel)]="searchString"
+  >
 </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Injectable } from '@angular/core';
 import { MainService } from '../../services/main.service';
+import { SearchResultsComponent } from '../search-results/search-results.component';
 
 @Component({
   selector: 'app-sorting',
@@ -12,7 +13,7 @@ import { MainService } from '../../services/main.service';
 
 export class SortingComponent implements OnInit {
 
-  private searchString: string = '';
+  public searchString: string = '';
 
   constructor(private mainService: MainService) { }
 
@@ -27,7 +28,4 @@ export class SortingComponent implements OnInit {
     this.mainService.sortByViews();
   }
 
-  public sortingByWord(): void {
-    this.mainService.sortByKeyword(this.searchString);
-  }
 }

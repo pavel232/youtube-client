@@ -8,8 +8,7 @@ import { MainService} from '../../../services/main.service';
 })
 export class SearchBarComponent implements OnInit {
 
-  constructor(
-    private mainService: MainService) { }
+  constructor(private mainService: MainService) { }
 
   public ngOnInit(): void {
   }
