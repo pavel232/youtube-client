@@ -10,8 +10,6 @@ export class MainService {
   public mockData: SearchResponse = YouTubeResponse;
   public cardItemsArray: ResultItem[] = [];
 
-  public filterWord: string = '';
-
   constructor() {  }
 
   private calculateDate (date: string): number {

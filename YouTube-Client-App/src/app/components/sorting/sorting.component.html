@@ -6,6 +6,6 @@
   <input
     class="sorting-input"
     type="text"
-    [(ngModel)]="searchString"
+    #filterInput (input)="onInput(filterInput.value)"
   >
 </div>
