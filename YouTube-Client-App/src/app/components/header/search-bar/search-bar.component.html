@@ -1,4 +1,6 @@
 <div class="search-bar-wrapper">
-  <input class="search-input" type="text" placeholder="What do you want to find out?">
+  <input class="search-input" type="text" placeholder="What do you want to find out?"
+    [(ngModel)]="searchString"
+  >
   <button class="search-button" (click)="onSearch()">search</button>
 </div>

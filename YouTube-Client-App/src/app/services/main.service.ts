@@ -28,18 +28,21 @@ export class MainService {
       const item: ResultItem = {
         title: element.snippet.title,
         preview: element.snippet.thumbnails.medium.url,
+        previewLarge: element.snippet.thumbnails.standard.url,
         views: element.statistics.viewCount,
         likes: element.statistics.likeCount,
         dislikes: element.statistics.dislikeCount,
         comments: element.statistics.commentCount,
-        uploadDate: this.calculateDate(element.snippet.publishedAt)
+        description: element.snippet.description,
+        uploadDate: element.snippet.publishedAt,
+        uploadedAgo: this.calculateDate(element.snippet.publishedAt)
       };
       this.cardItemsArray.push(item);
     });
   }
 
   public sortByDate(): void {
-    this.cardItemsArray.sort((a: ResultItem, b: ResultItem) => a.uploadDate - b.uploadDate);
+    this.cardItemsArray.sort((a: ResultItem, b: ResultItem) => a.uploadedAgo - b.uploadedAgo);
   }
 
   public sortByViews(): void {

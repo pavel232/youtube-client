@@ -1,0 +1,41 @@
+<div class="detail-wrapper">
+  <button class="button-back" (click)="goBack()">&lt;</button>
+
+  <div class="detail-container">
+    <img class="detail-preview" [src]="cardItem.previewLarge">
+
+    <div>
+      <div class="detail-info">
+        <div class="title-date">
+          <h2 class="title">{{cardItem.title}}</h2>
+          <p class="date">{{cardItem.uploadDate | date: 'fullDate'}}</p>
+        </div>
+
+        <div class="description">
+          <h4>Description:</h4>
+          <p>{{cardItem.description}}</p>
+        </div>
+      </div>
+
+      <div class="statistics">
+        <div class="statistics__element">
+          <img [src]="iconViewed" alt="Viewed">
+        <span class="statistics__element__text">{{cardItem.views}}</span>
+        </div>
+        <div class="statistics__element">
+          <img [src]="iconLiked" alt="Likes">
+        <span class="statistics__element__text">{{cardItem.likes}}</span>
+        </div>
+        <div class="statistics__element">
+          <img [src]="iconDislike" alt="Dislikes">
+        <span class="statistics__element__text">{{cardItem.dislikes}}</span>
+        </div>
+        <div class="statistics__element">
+          <img [src]="iconComments" alt="Comments">
+        <span class="statistics__element__text">{{cardItem.comments}}</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

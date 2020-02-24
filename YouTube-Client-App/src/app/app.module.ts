@@ -13,6 +13,10 @@ import { SettingsComponent } from './components/header/settings/settings.compone
 import { MainService } from './services/main.service';
 import { FormsModule } from '@angular/forms';
 import { FilterPipe } from './pipes/filter.pipe';
+import { Page404Component } from './components/page404/page404.component';
+import { LoginPageComponent } from './components/login-page/login-page.component';
+import { CardDetailComponent } from './components/card-detail/card-detail.component';
+import { LoginPageService } from './components/login-page/login-page.service';
 
 @NgModule({
   declarations: [
@@ -24,14 +28,19 @@ import { FilterPipe } from './pipes/filter.pipe';
     SearchBarComponent,
     LoginComponent,
     SettingsComponent,
-    FilterPipe
+    FilterPipe,
+    Page404Component,
+    LoginPageComponent,
+    CardDetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule
   ],
-  providers: [MainService],
+  providers: [MainService,
+              LoginPageService
+            ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

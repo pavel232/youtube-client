@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { SortingComponent } from './components/sorting/sorting.component';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +8,7 @@ import { SortingComponent } from './components/sorting/sorting.component';
 export class AppComponent {
 
   public isShowSorting: boolean = false;
+  public isShow404: boolean = false;
 
   public onToggle(): void {
     this.isShowSorting = !this.isShowSorting;

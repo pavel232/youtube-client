@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MainService} from '../../../services/main.service';
+import { Router } from '@angular/router';
+import { User } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-search-bar',
@@ -8,13 +10,25 @@ import { MainService} from '../../../services/main.service';
 })
 export class SearchBarComponent implements OnInit {
 
-  constructor(private mainService: MainService) { }
+  public searchString: string;
+
+  constructor(private mainService: MainService,
+              private router: Router
+    ) { }
 
   public ngOnInit(): void {
   }
 
   public onSearch(): void {
-    this.mainService.updateSearchItems();
+    const user: User = JSON.parse(localStorage.getItem('User'));
+    if (this.searchString && user) {
+      this.router.navigate(['/main'], {
+        queryParams: {
+          search: this.searchString
+        }
+      });
+      this.mainService.updateSearchItems();
+    }
   }
 
 }

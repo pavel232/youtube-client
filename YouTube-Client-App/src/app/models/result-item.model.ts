@@ -1,9 +1,12 @@
 export interface ResultItem {
   title: string;
   preview: string;
+  previewLarge: string;
   views: string;
   likes: string;
   dislikes: string;
   comments: string;
-  uploadDate: number;
+  description: string;
+  uploadDate: string;
+  uploadedAgo: number;
 }
