@@ -23,6 +23,7 @@ export class CardDetailComponent implements OnInit {
 
   public ngOnInit(): void {
     const tempCard: Object = this.routerParams.snapshot.queryParams;
+    console.log(this.routerParams.snapshot);
     this.cardItem = tempCard;
   }
 

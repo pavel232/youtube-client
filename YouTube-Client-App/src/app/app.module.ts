@@ -16,7 +16,7 @@ import { FilterPipe } from './core/pipes/filter.pipe';
 import { Page404Component } from './core/components/page404/page404.component';
 import { LoginPageComponent } from './auth/components/login-page/login-page.component';
 import { CardDetailComponent } from './youtube/components/card-detail/card-detail.component';
-import { AuthComponent } from './auth/auth.component';
+import { LoginService } from './auth/services/login.service';
 
 @NgModule({
   declarations: [
@@ -31,15 +31,14 @@ import { AuthComponent } from './auth/auth.component';
     FilterPipe,
     Page404Component,
     LoginPageComponent,
-    CardDetailComponent,
-    AuthComponent,
+    CardDetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule
   ],
-  providers: [MainService],
+  providers: [MainService, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

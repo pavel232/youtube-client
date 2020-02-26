@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from 'src/app/auth/models/user.model';
+import { LoginService } from 'src/app/auth/services/login.service';
+import { MainService } from 'src/app/core/services/main.service';
 
 @Component({
   selector: 'app-login',
@@ -11,32 +12,23 @@ export class LoginComponent implements OnInit {
 
   public loginBackgroundImagePath: string = 'assets/login.svg';
 
-  public userName: string = 'Your name';
-
+  public userName: string;
   public isLogout: boolean = false;
 
-  constructor(private router: Router) { }
+  constructor(private mainService: MainService,
+              private loginService: LoginService,
+              private router: Router) { }
 
   public ngOnInit(): void {
-    this.goToLogin();
-  }
-
-  public goToLogin(): void {
-    if (!localStorage.getItem('User')) {
-      this.router.navigate(['/login']);
-    } else {
-      const name: User = JSON.parse(localStorage.getItem('User'));
-      this.userName = name.userName;
-      console.log(this.userName);
-      this.isLogout = true;
-    }
+    this.loginService.userName.subscribe((value: string) => this.userName = value);
+    this.loginService.isLogout.subscribe((value: boolean) => this.isLogout = value);
+    this.loginService.checkUser();
   }
 
   public logout(): void {
-    localStorage.clear();
-    this.isLogout = false;
+    this.loginService.logout();
     this.router.navigate(['/login']);
-    this.userName = 'Your name';
+    this.mainService.cardItemsArray = [];
   }
 
 }

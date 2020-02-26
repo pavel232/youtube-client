@@ -1,5 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Injectable } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MainService } from '../../services/main.service';
 import { FilterService } from 'src/app/youtube/services/filter.service';
 
@@ -8,8 +7,6 @@ import { FilterService } from 'src/app/youtube/services/filter.service';
   templateUrl: './sorting.component.html',
   styleUrls: ['./sorting.component.scss']
 })
-
-@Injectable({providedIn: 'root'})
 
 export class SortingComponent implements OnInit {
 

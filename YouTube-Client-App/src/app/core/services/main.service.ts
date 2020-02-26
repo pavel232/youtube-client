@@ -7,6 +7,8 @@ import { ResultItem } from '../../youtube/models/result-item.model';
 
 export class MainService {
 
+  private userName: string = 'Your name';
+
   public mockData: SearchResponse = YouTubeResponse;
   public cardItemsArray: ResultItem[] = [];
 
@@ -23,7 +25,6 @@ export class MainService {
   }
 
   public updateSearchItems(): void {
-    // this.cardItemsArray = [];
     this.mockData.items.map((element) => {
       const item: ResultItem = {
         title: element.snippet.title,

@@ -18,8 +18,7 @@ export class SearchResultsComponent implements OnInit {
 
   constructor(
     private mainService: MainService,
-    private filerService: FilterService
-    ) {  }
+    private filerService: FilterService) {  }
 
   public ngOnInit(): void {
     this.resultItem = this.mainService.getSearchItems();

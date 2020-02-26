@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MainService} from '../../../services/main.service';
 import { Router } from '@angular/router';
-import { User } from 'src/app/auth/models/user.model';
+import { LoginService } from 'src/app/auth/services/login.service';
 
 @Component({
   selector: 'app-search-bar',
@@ -12,7 +12,8 @@ export class SearchBarComponent implements OnInit {
 
   public searchString: string;
 
-  constructor(private mainService: MainService,
+  constructor(public loginService: LoginService,
+              private mainService: MainService,
               private router: Router
     ) { }
 
@@ -20,8 +21,7 @@ export class SearchBarComponent implements OnInit {
   }
 
   public onSearch(): void {
-    const user: User = JSON.parse(localStorage.getItem('User'));
-    if (this.searchString && user) {
+    if (this.searchString && this.loginService.checkUser()) {
       this.router.navigate(['/main'], {
         queryParams: {
           search: this.searchString

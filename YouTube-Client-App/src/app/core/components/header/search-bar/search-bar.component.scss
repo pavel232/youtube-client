@@ -43,4 +43,10 @@ $defaultFont: 'Roboto', sans-serif;
     background: darken($backgroundColor, 10%);
     box-shadow: 2px 0px 4px #1d5194bb;
   }
+
+  &:disabled {
+    background: rgba(47, 129, 237, 0.5);
+    box-shadow: none;
+    cursor: default;
+  }
 }

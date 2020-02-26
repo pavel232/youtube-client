@@ -12,10 +12,6 @@ export class FilterService {
 
   constructor() { }
 
-  public getFilterWord(): string {
-    return this.word;
-  }
-
   public setFilterWord(value: string): void {
     this.word = value;
     this.filterWord.emit(this.word);
