@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { ResultItem } from '../../models/result-item.model';
 
 @Component({
   selector: 'app-card-detail',
@@ -21,7 +22,8 @@ export class CardDetailComponent implements OnInit {
   ) { }
 
   public ngOnInit(): void {
-    this.cardItem = this.routerParams.snapshot.queryParams;
+    const tempCard: Object = this.routerParams.snapshot.queryParams;
+    this.cardItem = tempCard;
   }
 
   public goBack(): void {

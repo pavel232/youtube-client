@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Injectable } from '@angular/core';
 import { MainService } from '../../services/main.service';
-import { FilterService } from 'src/app/services/filter.service';
+import { FilterService } from 'src/app/youtube/services/filter.service';
 
 @Component({
   selector: 'app-sorting',

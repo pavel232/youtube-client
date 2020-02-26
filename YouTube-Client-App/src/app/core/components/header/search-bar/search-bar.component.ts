@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MainService} from '../../../services/main.service';
 import { Router } from '@angular/router';
-import { User } from 'src/app/models/user.model';
+import { User } from 'src/app/auth/models/user.model';
 
 @Component({
   selector: 'app-search-bar',

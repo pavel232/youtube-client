@@ -1,7 +1,7 @@
 import { Component, OnInit, Injectable } from '@angular/core';
-import { ResultItem } from 'src/app/models/result-item.model';
-import { MainService }  from '../../services/main.service';
-import { FilterService } from 'src/app/services/filter.service';
+import { ResultItem } from 'src/app/youtube/models/result-item.model';
+import { MainService }  from '../../../core/services/main.service';
+import { FilterService } from 'src/app/youtube/services/filter.service';
 
 @Component({
   selector: 'app-search-results',

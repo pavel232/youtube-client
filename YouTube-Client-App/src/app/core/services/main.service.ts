@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { YouTubeResponse } from '../response';
-import { SearchResponse } from 'src/app/models/search-response.model';
-import { ResultItem } from '../models/result-item.model';
+import { YouTubeResponse } from '../../response';
+import { SearchResponse } from 'src/app/youtube/models/search-response.model';
+import { ResultItem } from '../../youtube/models/result-item.model';
 
 @Injectable({providedIn: 'root'})
 

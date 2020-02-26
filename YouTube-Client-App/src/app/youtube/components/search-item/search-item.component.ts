@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ResultItem } from 'src/app/models/result-item.model';
+import { ResultItem } from 'src/app/youtube/models/result-item.model';
 import { Router } from '@angular/router';
 
 @Component({
@@ -22,8 +22,11 @@ export class SearchItemComponent implements OnInit {
   constructor(private router: Router) { }
 
   public ngOnInit(): void {
+    // tslint:disable-next-line: typedef
     const sevenDays = 604800000;
+    // tslint:disable-next-line: typedef
     const oneMonth = 2592000000;
+    // tslint:disable-next-line: typedef
     const sixMonth = 15552000000;
 
     if (this.cardItem.uploadedAgo < sevenDays) {

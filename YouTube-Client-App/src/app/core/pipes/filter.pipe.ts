@@ -1,5 +1,5 @@
 import { Pipe } from '@angular/core';
-import { ResultItem } from '../models/result-item.model';
+import { ResultItem } from '../../youtube/models/result-item.model';
 
 @Pipe ({
   name: 'filterPipe'
