@@ -1,0 +1,42 @@
+$backgroundColor: #2F80ED;
+$defaultFont: 'Roboto', sans-serif;
+
+.login {
+  height: 42px;
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  font-family: $defaultFont;
+}
+
+.login-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.login-button {
+  height: 24px;
+  width: 24px;
+  margin-left: 8px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 2px 2px 4px #2f80ed40;
+  outline: none;
+}
+
+.logout {
+  margin-top: 3px;
+  font-family: $defaultFont;
+  font-size: .8rem;
+  text-decoration: underline;
+  user-select: none;
+
+  &:hover {
+    cursor: pointer;
+    color: blue;
+  }
+}

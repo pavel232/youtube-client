@@ -1,0 +1,11 @@
+<div class="login">
+
+  <div class="login-wrapper">
+    <p>{{userName}}</p>
+    <button class="login-button">
+      <img [src]="loginBackgroundImagePath" alt="Login">
+    </button>
+  </div>
+
+  <p class="logout" *ngIf="isLogout" (click)="logout()">Logout</p>
+</div>

@@ -3,5 +3,9 @@
 </header>
 
 <main class="search-results">
-  <app-search-results></app-search-results>
+
+  <app-sorting *ngIf="isShowSorting"></app-sorting>
+
+  <router-outlet></router-outlet>
+
 </main>
