@@ -17,6 +17,9 @@ export class LoginPageComponent implements OnInit {
               private router: Router) { }
 
   public ngOnInit(): void {
+    if (this.loginService.checkUser()) {
+      this.router.navigateByUrl('/main');
+    }
   }
 
   public createUser(): void {
