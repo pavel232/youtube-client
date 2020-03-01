@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MainService } from '../../services/main.service';
+import { MainService } from '../../../services/main.service';
 import { FilterService } from 'src/app/youtube/services/filter.service';
 
 @Component({

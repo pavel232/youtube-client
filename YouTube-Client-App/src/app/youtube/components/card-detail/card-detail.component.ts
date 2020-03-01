@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { ResultItem } from '../../models/result-item.model';
 
 @Component({
   selector: 'app-card-detail',
@@ -14,7 +13,7 @@ export class CardDetailComponent implements OnInit {
   public iconDislike: string = 'assets/dislike.svg';
   public iconComments: string = 'assets/comments.svg';
 
-  public cardItem: any;
+  public cardItem: Object;
 
   constructor(
     private router: Router,
@@ -22,9 +21,7 @@ export class CardDetailComponent implements OnInit {
   ) { }
 
   public ngOnInit(): void {
-    const tempCard: Object = this.routerParams.snapshot.queryParams;
-    console.log(this.routerParams.snapshot);
-    this.cardItem = tempCard;
+    this.cardItem = this.routerParams.snapshot.queryParams;
   }
 
   public goBack(): void {

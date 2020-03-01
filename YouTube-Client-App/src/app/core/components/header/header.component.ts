@@ -9,9 +9,15 @@ export class HeaderComponent implements OnInit {
 
   public logoPath: string = '/assets/logo.svg';
 
+  public isShowSorting: boolean = false;
+
   constructor() { }
 
   public ngOnInit(): void {
+  }
+
+  public onToggle(): void {
+    this.isShowSorting = !this.isShowSorting;
   }
 
 }

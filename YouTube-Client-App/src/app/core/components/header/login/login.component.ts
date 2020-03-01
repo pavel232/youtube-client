@@ -22,7 +22,11 @@ export class LoginComponent implements OnInit {
   public ngOnInit(): void {
     this.loginService.userName.subscribe((value: string) => this.userName = value);
     this.loginService.isLogout.subscribe((value: boolean) => this.isLogout = value);
-    this.loginService.checkUser();
+    if (this.loginService.checkUser()) {
+      this.router.navigateByUrl('/main');
+    } else {
+      this.router.navigateByUrl('/login');
+    }
   }
 
   public logout(): void {

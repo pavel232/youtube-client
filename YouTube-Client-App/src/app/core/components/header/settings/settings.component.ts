@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AppComponent } from 'src/app/app.component';
+import { HeaderComponent } from '../header.component';
 
 @Component({
   selector: 'app-settings',
@@ -10,7 +10,7 @@ export class SettingsComponent implements OnInit {
 
   public settingsIcon: string = '/assets/settings.svg';
 
-  constructor(private showSorting: AppComponent) { }
+  constructor(private showSorting: HeaderComponent) { }
 
   public ngOnInit(): void {
   }

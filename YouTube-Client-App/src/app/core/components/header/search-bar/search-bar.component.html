@@ -1,6 +1,13 @@
-<div class="search-bar-wrapper">
+<form class="search-bar-wrapper"
+  (ngSubmit)="onSearch()"
+  #formSearch="ngForm"
+>
   <input class="search-input" type="text" placeholder="What do you want to find out?"
+    name="searchInput"
     [(ngModel)]="searchString"
+    required
   >
-  <button class="search-button" (click)="onSearch()">search</button>
-</div>
+  <button class="search-button"
+    [disabled]="formSearch.form.invalid"
+  >search</button>
+</form>

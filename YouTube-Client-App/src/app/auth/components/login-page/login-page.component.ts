@@ -16,11 +16,7 @@ export class LoginPageComponent implements OnInit {
   constructor(private loginService: LoginService,
               private router: Router) { }
 
-  public ngOnInit(): void {
-    if (this.loginService.checkUser()) {
-      this.router.navigateByUrl('/main');
-    }
-  }
+  public ngOnInit(): void { }
 
   public createUser(): void {
       if (this.loginService.createNewUser(this.login, this.password)) {
