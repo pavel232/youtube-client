@@ -1,15 +1,10 @@
 $backgroundColor: #2F80ED;
 $defaultFont: 'Roboto', sans-serif;
 
-.search-bar-wrapper {
-  display: flex;
-  margin: 10px;
-  flex-wrap: nowrap;
-}
-
 .search-input {
   height: 24px;
   width: 396px;
+  margin: 10px;
   border: none;
   background: #EFEFEF;
   font-family: $defaultFont;
@@ -20,33 +15,3 @@ $defaultFont: 'Roboto', sans-serif;
   color: #333333;
 }
 
-.search-button {
-  height: 24px;
-  width: 80px;
-  font-family: $defaultFont;
-  color: #FFFFFF;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 14px;
-  border: none;
-  border-radius: 0px 4px 4px 0px;
-  background-color: $backgroundColor;
-  box-shadow: 2px 0px 4px #2F80ED;
-  outline: none;
-
-  &:hover {
-    cursor: pointer;
-  }
-
-  &:active {
-    background: darken($backgroundColor, 10%);
-    box-shadow: 2px 0px 4px #1d5194bb;
-  }
-
-  &:disabled {
-    background: rgba(47, 129, 237, 0.5);
-    box-shadow: none;
-    cursor: default;
-  }
-}

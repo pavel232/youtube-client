@@ -42,7 +42,9 @@ export class SearchItemComponent implements OnInit {
 
   public showMoreInfo(): void {
     this.router.navigate([`./detail`, this.cardId], {
-      queryParams: this.cardItem
+      queryParams: {
+        id: this.cardItem.videoId
+      }
     });
   }
 }

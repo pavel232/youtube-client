@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MainService} from '../../../services/main.service';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/auth/services/login.service';
-import { observable, fromEvent, Observable } from 'rxjs';
+import { fromEvent } from 'rxjs';
 import { filter, map, debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
@@ -10,40 +10,54 @@ import { filter, map, debounceTime, distinctUntilChanged } from 'rxjs/operators'
   templateUrl: './search-bar.component.html',
   styleUrls: ['./search-bar.component.scss']
 })
-export class SearchBarComponent implements OnInit {
 
-  public searchString: string;
+export class SearchBarComponent implements OnInit {
 
   constructor(public loginService: LoginService,
               private mainService: MainService,
               private router: Router
-    ) { }
+  ) { }
 
   public ngOnInit(): void {
   }
 
-  public onSearch(): void {
+  public ngAfterViewInit(): void {
+    const input: HTMLElement = document.getElementById('searchInput');
 
-    // const input: EventTarget = document.querySelector('input');
+    fromEvent<any>(input, 'keyup').pipe(
+      debounceTime(500),
+      map(event => event.target.value),
+      filter(value => value.length > 2),
+      distinctUntilChanged(),
+      map(value => value)
+    ).subscribe(
+      str => this.onSearch(str)
+    );
+  }
 
-    // fromEvent(input, 'keyup').pipe(
-    //   debounceTime(700),
-    //   map(event => event.target.value),
-    //   filter(value => value.length > 3),
-    //   distinctUntilChanged(),
-    //   map(value => value)
-    // )
-    // .subscribe({
-    //   next: console.log
-    // });
+  public onSearch(str: string): void {
 
-    this.mainService.onSearch(this.searchString);
+    this.mainService.onSearch(str);
 
     this.router.navigate(['/main'], {
       queryParams: {
-        search: this.searchString
+        search: str
       }
     });
   }
 
 }
+
+// const el: HTMLElement = document.getElementById('searchInput');
+// console.log(el);
+
+// fromEvent(input, 'keyup').pipe(
+//   debounceTime(700),
+//   map(event => event.target.value),
+//   filter(value => value.length > 3),
+//   distinctUntilChanged(),
+//   map(value => value)
+// )
+// .subscribe(
+//   ev => console.log(ev)
+// );

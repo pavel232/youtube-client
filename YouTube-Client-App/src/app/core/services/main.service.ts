@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { SearchResponse } from 'src/app/core/models/search-response.model';
 import { VideoIdList } from 'src/app/core/models/video-id-list.model';
 import { ResultItem } from '../../youtube/models/result-item.model';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { AppComponent } from 'src/app/app.component';
 
 @Injectable({providedIn: 'root'})
 
@@ -10,9 +11,9 @@ export class MainService {
 
   public cardItemsArray: ResultItem[] = [];
 
-  public apiKey: string = 'AIzaSyDwC6SUom3ylede5xMa_i428yopceJP1NA';
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+              private apiKey: AppComponent
+  ) { }
 
   private calculateDate (date: string): number {
     const a: Date = new Date();
@@ -29,6 +30,7 @@ export class MainService {
 
     mockData.items.forEach((element) => {
       const item: ResultItem = {
+        videoId: element.id,
         title: element.snippet.title,
         preview: element.snippet.thumbnails.medium.url,
         previewLarge: element.snippet.thumbnails.high.url,
@@ -44,26 +46,31 @@ export class MainService {
     });
   }
 
-  public onSearch(searchString: string): string {
-    // tslint:disable-next-line: typedef
-    const request = 'https://www.googleapis.com/youtube/v3/';
-    // tslint:disable-next-line: typedef
-    let url = `${request}search?key=${this.apiKey}&type=video&part=snippet&maxResults=25&q=${searchString}`;
+  public onSearch(searchString: string): void {
 
-    this.http.get(url).subscribe((data: VideoIdList) => {
+    this.http.get('https://www.googleapis.com/youtube/v3/search', {
+      params: new HttpParams()
+        .set('key', this.apiKey.apiKey)
+        .set('type', 'video')
+        .set('part', 'snippet')
+        .set('maxResults', '25')
+        .set('q', searchString)
+    }).subscribe((data: VideoIdList) => {
       const arrayIds: string[] = [];
       data.items.forEach(item => {
         arrayIds.push(item.id.videoId);
       });
 
       const ids: string = arrayIds.join();
-      url = `${request}videos?key=${this.apiKey}&id=${ids}&part=snippet,statistics`;
-
-      this.http.get(url).subscribe((item: SearchResponse) => {
+      this.http.get('https://www.googleapis.com/youtube/v3/videos', {
+        params: new HttpParams()
+          .set('key', this.apiKey.apiKey)
+          .set('id', ids)
+          .set('part', 'snippet,statistics')
+      }).subscribe((item: SearchResponse) => {
         this.updateSearchItems(item);
       });
     });
-    return url;
   }
 
   public sortByDate(): void {
