@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { DetailService } from '../../services/detail.service';
 import { ResultItem } from '../../models/result-item.model';
 import { SearchResponse } from 'src/app/core/models/search-response.model';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-card-detail',
@@ -17,22 +18,24 @@ export class CardDetailComponent implements OnInit {
   public iconComments: string = 'assets/comments.svg';
 
   public cardItem: ResultItem;
+  public videoLink: SafeResourceUrl;
 
   constructor(
-    private router: Router,
     private routerParams: ActivatedRoute,
-    private detailService: DetailService
+    private detailService: DetailService,
+    private sanitize: DomSanitizer
   ) { }
 
   public ngOnInit(): void {
     const videoId: string = this.routerParams.snapshot.queryParams.id;
     this.detailService.getItem(videoId).subscribe((data: SearchResponse) => {
       this.cardItem = this.detailService.createItem(data);
+      this.videoLink = this.sanitize.bypassSecurityTrustResourceUrl(this.cardItem.videoLink);
     });
   }
 
   public goBack(): void {
-    this.router.navigateByUrl('/main');
+    history.back();
   }
 
 }

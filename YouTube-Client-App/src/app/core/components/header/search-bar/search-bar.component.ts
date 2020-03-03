@@ -47,17 +47,3 @@ export class SearchBarComponent implements OnInit {
   }
 
 }
-
-// const el: HTMLElement = document.getElementById('searchInput');
-// console.log(el);
-
-// fromEvent(input, 'keyup').pipe(
-//   debounceTime(700),
-//   map(event => event.target.value),
-//   filter(value => value.length > 3),
-//   distinctUntilChanged(),
-//   map(value => value)
-// )
-// .subscribe(
-//   ev => console.log(ev)
-// );

@@ -33,7 +33,6 @@ export class MainService {
         videoId: element.id,
         title: element.snippet.title,
         preview: element.snippet.thumbnails.medium.url,
-        previewLarge: element.snippet.thumbnails.high.url,
         views: element.statistics.viewCount,
         likes: element.statistics.likeCount,
         dislikes: element.statistics.dislikeCount,

@@ -2,7 +2,7 @@ export interface ResultItem {
   videoId?: string;
   title: string;
   preview: string;
-  previewLarge: string;
+  videoLink?: string;
   views: string;
   likes: string;
   dislikes: string;

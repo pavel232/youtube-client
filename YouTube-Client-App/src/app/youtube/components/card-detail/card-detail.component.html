@@ -2,7 +2,13 @@
   <button class="button-back" (click)="goBack()">&lt;</button>
 
   <div class="detail-container">
-    <img class="detail-preview" [src]="cardItem.previewLarge">
+    <iframe class="detail-preview"
+      width="729" height="461"
+      [src]="videoLink"
+      frameborder="0"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+    ></iframe>
+    <!-- <img class="detail-preview" [src]="cardItem.previewLarge"> -->
 
     <div>
       <div class="detail-info">

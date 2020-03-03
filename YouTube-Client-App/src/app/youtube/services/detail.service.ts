@@ -20,7 +20,7 @@ export class DetailService {
     return {
       title: item.snippet.title,
       preview: item.snippet.thumbnails.medium.url,
-      previewLarge: item.snippet.thumbnails.high.url,
+      videoLink: `https://www.youtube.com/embed/${item.id}`,
       views: item.statistics.viewCount,
       likes: item.statistics.likeCount,
       dislikes: item.statistics.dislikeCount,
