@@ -26,6 +26,7 @@ $defaultFont: 'Roboto', sans-serif;
   border-radius: 5px;
   box-shadow: 2px 2px 4px #2f80ed40;
   outline: none;
+  user-select: none;
 }
 
 .logout {

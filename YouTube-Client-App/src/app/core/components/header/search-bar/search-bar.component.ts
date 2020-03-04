@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import { MainService} from '../../../services/main.service';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/auth/services/login.service';
@@ -13,15 +13,16 @@ import { filter, map, debounceTime, distinctUntilChanged } from 'rxjs/operators'
 
 export class SearchBarComponent implements OnInit {
 
+  public isLogout: boolean = false;
+
   constructor(public loginService: LoginService,
               private mainService: MainService,
               private router: Router
   ) { }
 
   public ngOnInit(): void {
-  }
+    this.loginService.isLogout.subscribe((value: boolean) => this.isLogout = value);
 
-  public ngAfterViewInit(): void {
     const input: HTMLElement = document.getElementById('searchInput');
 
     fromEvent<any>(input, 'keyup').pipe(

@@ -11,6 +11,7 @@ $backgroundColor: #2F80ED;
   background-color: $backgroundColor;
   box-shadow: 2px 0px 4px #2F80ED;
   outline: none;
+  user-select: none;
 
   &:hover {
     cursor: pointer;

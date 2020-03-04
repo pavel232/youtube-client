@@ -11,6 +11,9 @@ export class MainService {
 
   public cardItemsArray: ResultItem[] = [];
 
+  private forwardDate: boolean = true;
+  private forwardView: boolean = true;
+
   constructor(private http: HttpClient,
               private apiKey: AppComponent
   ) { }
@@ -73,11 +76,23 @@ export class MainService {
   }
 
   public sortByDate(): void {
-    this.cardItemsArray.sort((a: ResultItem, b: ResultItem) => a.uploadedAgo - b.uploadedAgo);
+    if(this.forwardDate) {
+      this.cardItemsArray.sort((a: ResultItem, b: ResultItem) => a.uploadedAgo - b.uploadedAgo);
+      this.forwardDate = !this.forwardDate;
+    } else {
+      this.cardItemsArray.sort((a: ResultItem, b: ResultItem) => b.uploadedAgo - a.uploadedAgo);
+      this.forwardDate = !this.forwardDate;
+    }
   }
 
   public sortByViews(): void {
-    this.cardItemsArray.sort((a: ResultItem, b: ResultItem) => +a.views - +b.views);
+    if(this.forwardView) {
+      this.cardItemsArray.sort((a: ResultItem, b: ResultItem) => +a.views - +b.views);
+      this.forwardView = !this.forwardView;
+    } else {
+      this.cardItemsArray.sort((a: ResultItem, b: ResultItem) => +b.views - +a.views);
+      this.forwardView = !this.forwardView;
+    }
   }
 
 }
