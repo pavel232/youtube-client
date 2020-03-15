@@ -9,10 +9,10 @@ import { AppComponent } from 'src/app/app.component';
 
 export class MainService {
 
-  public cardItemsArray: ResultItem[] = [];
-
   private forwardDate: boolean = true;
   private forwardView: boolean = true;
+
+  public cardItemsArray: ResultItem[] = [];
 
   constructor(private http: HttpClient,
               private apiKey: AppComponent
@@ -76,7 +76,7 @@ export class MainService {
   }
 
   public sortByDate(): void {
-    if(this.forwardDate) {
+    if (this.forwardDate) {
       this.cardItemsArray.sort((a: ResultItem, b: ResultItem) => a.uploadedAgo - b.uploadedAgo);
       this.forwardDate = !this.forwardDate;
     } else {
@@ -86,7 +86,7 @@ export class MainService {
   }
 
   public sortByViews(): void {
-    if(this.forwardView) {
+    if (this.forwardView) {
       this.cardItemsArray.sort((a: ResultItem, b: ResultItem) => +a.views - +b.views);
       this.forwardView = !this.forwardView;
     } else {
